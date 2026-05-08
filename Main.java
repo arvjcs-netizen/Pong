@@ -1,7 +1,5 @@
-import javax.swing.JFrame;
 import java.awt.*;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
 
 public class Main extends Canvas {
     
