@@ -57,6 +57,11 @@ public class Ball{
         ySpeed = -ySpeed;
     }
     public void update(){
+        if(ySpeed > 0){
+            ySpeed = Math.min(10, ySpeed);
+        }else{
+            ySpeed = Math.max(-10, ySpeed);
+        }
         if(y<=1 || y>350- size){
             bounceY();
         }
