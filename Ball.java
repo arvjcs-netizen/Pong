@@ -13,8 +13,8 @@ public class Ball{
         this.xInit =x;
         this.yInit = y; 
         this.size = size;
-        xSpeed = 6;
-        ySpeed = 4;
+        xSpeed = 8;
+        ySpeed = 2;
     }
     public int getX(){
         return x;
@@ -58,15 +58,15 @@ public class Ball{
     }
     public void update(){
         if(ySpeed > 0){
-            ySpeed = Math.min(6, ySpeed);
+            ySpeed = Math.min(7, ySpeed);
         }else{
-            ySpeed = Math.max(-6, ySpeed);
+            ySpeed = Math.max(-7, ySpeed);
         }
         if(xSpeed>0){
-            xSpeed = (int) Math.max(3, Math.pow(52 - Math.pow(ySpeed, 2), 0.5));
+            xSpeed = (int) Math.max(3, Math.pow(64 - Math.pow(ySpeed, 2), 0.5));
             
         }else{
-            xSpeed = - ((int) Math.max(3, Math.pow(52 - Math.pow(ySpeed, 2), 0.5)));
+            xSpeed = - ((int) Math.max(3, Math.pow(64 - Math.pow(ySpeed, 2), 0.5)));
         }
         if(y<=1 || y>350- size){
             bounceY();

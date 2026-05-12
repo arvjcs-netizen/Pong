@@ -51,7 +51,7 @@ public class Paddle{
         }
     }
     public void update(Ball ball){
-        if (player  == 1){       
+        if (player  == 1){
             if((ball.getX()<= x + size)&&(ball.getX() > x)&&(ball.getY() + ball.getSize() > y)&&(ball.getY()<y + 5*size) &&  (ball.getXVelocity() < 0)){
             ball.bounceX();
             Main.score += 1;
@@ -64,13 +64,13 @@ public class Paddle{
         }
     }
     public void changeVelocity(Ball ball){
-        if (player  == 1){       
+        if (player  == 1){
             if((ball.getX()<= x + size)&&(ball.getX() > x)&&(ball.getY() + ball.getSize() > y)&&(ball.getY()<y + 5*size) &&  (ball.getXVelocity() < 0)){
-            ball.setYVelocity(ball.getYVelocity() + velocity/5  - 1);
+            ball.setYVelocity(ball.getYVelocity() + velocity/3  - 1);
         }
         }if (player  ==  2){
             if((ball.getX()>= x - size )&&(ball.getX() < x + size)&&(ball.getY() + ball.getSize() > y)&&(ball.getY()<y + 5*size) &&  (ball.getXVelocity() > 0)){
-            ball.setYVelocity(ball.getYVelocity() + velocity/5 -1);
+            ball.setYVelocity(ball.getYVelocity() + velocity/3 -1);
         }
         }
     }
