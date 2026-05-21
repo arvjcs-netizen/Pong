@@ -7,14 +7,19 @@ public class Ball{
     private int ySpeed;
     private int xInit;
     private int yInit;
+    private static final int DEFAULTXSPEED = 8;
+    private static final int DEFAULTYSPEED = 2;
     public Ball(int x, int y, int size){
         this.x = x;
         this.y = y;
         this.xInit =x;
         this.yInit = y; 
         this.size = size;
-        xSpeed = 8;
-        ySpeed = 2;
+        xSpeed = DEFAULTXSPEED;
+        ySpeed = DEFAULTYSPEED;
+        if (Math.random() < 0.5){
+            xSpeed *= -1;
+        }
     }
     public int getX(){
         return x;
@@ -56,7 +61,8 @@ public class Ball{
     public void bounceY(){
         ySpeed = -ySpeed;
     }
-    public void update(){
+    public int update(){
+        int winner = 0; 
         if(ySpeed > 0){
             ySpeed = Math.min(7, ySpeed);
         }else{
@@ -71,14 +77,33 @@ public class Ball{
         if(y<=1 || y>350- size){
             bounceY();
         }
-        if (x <0  || x>600){
+        if (x <0  || x>600- size){
+            if (x<0){
+                winner = 1;
+            }else{
+                winner = -1;
+            }
             reset();
+
+            try{
+                Thread.sleep(2000);
+            }
+            catch (InterruptedException e) {
+            }
+
+
         }
+        return winner;
     }
     public void reset(){
       x = xInit;
       y = yInit; 
-      System.out.println("Game Over. \nYour score was " + Main.score + "!");
-      Main.score = 0;
+      xSpeed = DEFAULTXSPEED;
+      ySpeed = DEFAULTYSPEED;
+      if (Math.random() < (0.5)){
+        xSpeed *= -1;
+      }
+
+      
     }
 }
