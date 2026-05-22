@@ -1,7 +1,7 @@
 import java.awt.*;
-import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JFrame;
 
 public class Main extends Canvas implements KeyListener{
     
