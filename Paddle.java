@@ -33,6 +33,7 @@ public class Paddle{
         this.size = size; 
     }
     public void drawPaddle(Graphics g){
+        g.setColor(Color.WHITE);
         g.fillRect(x ,y, size, 5*size);
     }
     public void setVelocity(int velocity){
