@@ -7,8 +7,8 @@ public class Ball{
     private int ySpeed;
     private int xInit;
     private int yInit;
-    private static final int DEFAULTXSPEED = 8;
-    private static final int DEFAULTYSPEED = 2;
+    private static final int DEFAULTXSPEED = 10;
+    private static final int DEFAULTYSPEED = 4;
     public Ball(int x, int y, int size){
         this.x = x;
         this.y = y;
@@ -50,6 +50,7 @@ public class Ball{
         ySpeed = velocity;
     }
     public void drawBall(Graphics g){
+        g.setColor(Color.WHITE);
         x += xSpeed;
         y += ySpeed;
         g.fillOval(x,y, size, size);
@@ -69,10 +70,10 @@ public class Ball{
             ySpeed = Math.max(-7, ySpeed);
         }
         if(xSpeed>0){
-            xSpeed = (int) Math.max(3, Math.pow(64 - Math.pow(ySpeed, 2), 0.5));
+            xSpeed = (int) Math.max(3, Math.pow(130 - Math.pow(ySpeed, 2), 0.5));
             
         }else{
-            xSpeed = - ((int) Math.max(3, Math.pow(64 - Math.pow(ySpeed, 2), 0.5)));
+            xSpeed = - ((int) Math.max(3, Math.pow(130 - Math.pow(ySpeed, 2), 0.5)));
         }
         if(y<=1 || y>350- size){
             bounceY();
