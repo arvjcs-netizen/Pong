@@ -1,7 +1,7 @@
 import java.awt.*;
+import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.swing.JFrame;
 
 public class Main extends Canvas implements KeyListener{
     
@@ -24,6 +24,8 @@ public class Main extends Canvas implements KeyListener{
         paddle2 = new Paddle(560, 20, 15, 2);
         this.addKeyListener(this);
         this.setFocusable(true);
+        paddle1.reset();
+        paddle2.reset();
     }
     public void updateInput() {
         // Player 1 controls (W and S)
@@ -74,30 +76,32 @@ public class Main extends Canvas implements KeyListener{
         // Not used, but required by KeyListener interface
     }
     public void drawZero(Graphics g, int x, int y){
-        g.setColor(Color.BLACK);
-        g.fillRect(x,y, 25, 40);
         g.setColor(Color.WHITE);
+        g.fillRect(x,y, 25, 40);
+        g.setColor(Color.BLACK);
         g.fillRect(x+5, y+5, 15, 30);
     }
     public void drawOne(Graphics g, int x, int y){
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.fillRect(x,y, 8, 40);
     }
     public void drawTwo(Graphics g, int x, int y){
-        g.setColor(Color.BLACK);
-        g.fillRect(x,y, 25, 40);
         g.setColor(Color.WHITE);
+        g.fillRect(x,y, 25, 40);
+        g.setColor(Color.BLACK);
         g.fillRect(x, y + 4, 20, 14);
         g.fillRect(x + 5, y +22, 20, 14);
     }
     public void drawThree(Graphics g, int x, int y){
-        g.setColor(Color.BLACK);
-        g.fillRect(x,y, 25, 40);
         g.setColor(Color.WHITE);
+        g.fillRect(x,y, 25, 40);
+        g.setColor(Color.BLACK);
         g.fillRect(x, y + 4, 20, 14);
         g.fillRect(x, y +22, 20, 14);
     }
     public void paint (Graphics g){
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, 600, 400);
         int toUpdate;
         ball.drawBall(g);
         toUpdate = ball.update();
